@@ -20,31 +20,33 @@ const tempoEl = document.getElementById("tempo");
 const tempoYMEl = document.getElementById("tempoYM");
 
 function atualizarContador() {
-    const agora = new Date();
-    const diferenca = agora - inicioRelacionamento;
-  
-    // ==== Anos e meses ====
-    let anos = agora.getFullYear() - inicioRelacionamento.getFullYear();
-    let meses = agora.getMonth() - inicioRelacionamento.getMonth();
-  
-    if (meses < 0) {
-      anos--;
-      meses += 12;
-}
+    const inicio = new Date('2020-07-09T17:10:00');
+  const agora = new Date();
+  const diffMs = agora - inicio;
 
-tempoYMEl.innerHTML = `<strong>${anos}</strong> Ano(s) e <strong>${meses}</strong> Mês(es) 💖`;
+  // Cálculo de anos e meses
+  let anos = agora.getFullYear() - inicio.getFullYear();
+  let meses = agora.getMonth() - inicio.getMonth();
 
-  // ==== Dias, horas, minutos, segundos ====
-  const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
-  const horas = Math.floor((diferenca / (1000 * 60 * 60)) % 24);
-  const minutos = Math.floor((diferenca / (1000 * 60)) % 60);
-  const segundos = Math.floor((diferenca / 1000) % 60);
+  if (meses < 0) {
+    anos--;
+    meses += 12;
+  }
 
-  tempoEl.innerHTML = `
-    <span class="numero">${dias}</span> Dias,
-    <span class="numero">${horas}</span>H
-    <span class="numero">${minutos}</span>Min
-    <span class="numero">${segundos}</span>S
+  // Exibir no HTML
+  document.getElementById('tempoYM').textContent = `${anos} ano(s) e ${meses} mês(es)`;
+
+  // Cálculo de dias, horas, minutos, segundos
+  const dias = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+  const horas = agora.getHours();
+  const minutos = agora.getMinutes();
+  const segundos = agora.getSeconds();
+
+  document.getElementById('tempo').innerHTML = `
+    <span class="numero">${dias}</span> dias,
+    <span class="numero">${horas}</span>h
+    <span class="numero">${minutos}</span>min
+    <span class="numero">${segundos}</span>s
   `;
 }
 
