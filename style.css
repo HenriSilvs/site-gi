@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    background-color: #fff0f5;
+    color: #444;
+    padding: 20px;
+  }
+  
+  h1 {
+    color: #d63384;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+
+  .mensagem {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #6a1b9a;
+    font-style: italic;
+  }
+  
+  
+  .carousel {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }  
+  
+  .slide {
+    width: 100%;
+    max-height: 700px; /* limite de altura */
+    display: flex;
+    object-fit: cover; /* mantém o corte proporcional */
+    border-radius: 10px;
+  }
+  
+  
+  #contador {
+    font-size: 1.2rem;
+    padding: 20px;
+  }
+  
+  #contador h2 {
+    color: #c2185b;
+    margin-bottom: 10px;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 2rem;
+    }
+  
+    #contador {
+      font-size: 1rem;
+    }
+  
+    .carousel {
+      border-radius: 10px;
+    }
+  }
+  
