@@ -1,113 +1,51 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+let slideIndex = 0;
+const slides = document.getElementsByClassName("slide");
+
+function showSlides() {
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
   }
+
+  slideIndex++;
+  if (slideIndex > slides.length) slideIndex = 1;
+
+  slides[slideIndex - 1].style.display = "block";
+  setTimeout(showSlides, 3000);
+}
+
+showSlides();
+
+const inicioRelacionamento = new Date("2020-07-09T17:10:00");
+const tempoEl = document.getElementById("tempo");
+const tempoYMEl = document.getElementById("tempoYM");
+
+function atualizarContador() {
+    const agora = new Date();
+    const diferenca = agora - inicioRelacionamento;
   
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #fff0f5;
-    color: #444;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+    // ==== Anos e meses ====
+    let anos = agora.getFullYear() - inicioRelacionamento.getFullYear();
+    let meses = agora.getMonth() - inicioRelacionamento.getMonth();
   
-  h1 {
-    color: #d63384;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    max-width: 600px;
-  }
-  
-  .mensagem {
-    font-size: 1.3rem;
-    margin-bottom: 15px;
-    color: #6a1b9a;
-    font-style: italic;
-    max-width: 600px;
-  }
-  
-  .carousel {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto 30px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  }
-  
-  .slide {
-    width: 100%;
-    max-height: 700px;
-    display: block;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-  
-  hr, .linha {
-    width: 80%;
-    max-width: 600px;
-    margin: 30px auto;
-    border: none;
-    border-top: 2px solid #9c27b0;
-  }
-  
-  #contador {
-    font-size: 2rem;
-    padding: 20px;
-    max-width: 600px;
-  }
-  
-  #contador h2 {
-    color: #c2185b;
-    margin-bottom: 10px;
-  }
-  
-  #tempoYM {
-    font-size: 2rem;
-    font-family: 'Orbitron', sans-serif;
-    color: #d81b60;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .numero {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2rem;
-    color: #d81b60;
-    font-weight: bold;
-    margin: 0 8px;
-  }
-  
-  /* Responsividade */
-  @media (max-width: 600px) {
-    h1 {
-      font-size: 2rem;
-    }
-  
-    .mensagem {
-      font-size: 1.1rem;
-    }
-  
-    #contador {
-      font-size: 1rem;
-      padding: 10px;
-    }
-  
-    #tempoYM {
-      font-size: 1.5rem;
-    }
-  
-    .numero {
-      font-size: 1.5rem;
-    }
-  
-    hr, .linha {
-      width: 90%;
-    }
-  }
-  
+    if (meses < 0) {
+      anos--;
+      meses += 12;
+}
+
+tempoYMEl.innerHTML = `<strong>${anos}</strong> Ano(s) e <strong>${meses}</strong> Mês(es) 💖`;
+
+  // ==== Dias, horas, minutos, segundos ====
+  const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+  const horas = Math.floor((diferenca / (1000 * 60 * 60)) % 24);
+  const minutos = Math.floor((diferenca / (1000 * 60)) % 60);
+  const segundos = Math.floor((diferenca / 1000) % 60);
+
+  tempoEl.innerHTML = `
+    <span class="numero">${dias}</span> Dias,
+    <span class="numero">${horas}</span>H
+    <span class="numero">${minutos}</span>Min
+    <span class="numero">${segundos}</span>S
+  `;
+}
+
+setInterval(atualizarContador, 1000);
