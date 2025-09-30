@@ -22,11 +22,6 @@
     max-width: 600px;
     text-align: center;
   }
-
-  .bordas {
-      border: black 2px;
-      border-radius: 15px;
-  }
   
   .mensagem {
     font-size: 1.3rem;
@@ -118,6 +113,7 @@
     }     
   }
   
+
 
 
 
