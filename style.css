@@ -22,6 +22,11 @@
     max-width: 600px;
     text-align: center;
   }
+
+  .bordas {
+      border: 1px
+      
+  }
   
   .mensagem {
     font-size: 1.3rem;
@@ -112,11 +117,8 @@
       width: 90%;
     }     
   }
-    #contador {
-        text-align: center;
-        margin-top: 15px;
-    }
   
+
 
 
 
