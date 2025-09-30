@@ -14,17 +14,6 @@
     align-items: center;
     text-align: center;
   }
-
-.appContainer {
-    width: 600px;
-    max-width: 95%;
-    min-height: 90vh;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
-    padding: 20px;
-    overflow-y: auto;
-}
   
   h1 {
     color: #d63384;
@@ -128,5 +117,6 @@
         margin-top: 15px;
     }
   
+
 
 
