@@ -187,4 +187,47 @@
   word-break: break-all;
   display: block;
 }
-  
+
+.card {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.esquerda {
+  left:0;
+}
+
+.direita {
+  left: 50%;
+}
+
+.textodata {
+    padding: 24px;
+    background-color: var(--cor-fundo-card);
+    position: relative;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px var(--cor-sombra);
+    transition: transform 0.3s ease;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1000px; /* Ou a largura máxima que preferir */
+    margin: 0 auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;                  /* Espessura da linha */
+    background-color: #ff4d6d;   /* Cor da linha (pode alterar para a cor do seu tema) */
+    top: 0;
+    bottom: 0;
+    left: 50%;                   /* Posiciona exatamente no meio */
+    transform: translateX(-50%); /* Garante o alinhamento perfeito no centro */
+    z-index: 1;                  /* Mantém a linha na camada correta */
+}
+
